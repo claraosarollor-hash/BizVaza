@@ -1,0 +1,30 @@
+/* report-print.css — shared print/PDF view styling for BizVaza reports */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',Arial,sans-serif;background:#eef1f5;color:#1a2332;font-size:12px;padding:24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.rp-sheet{width:210mm;min-height:297mm;margin:0 auto;background:#fff;padding:14mm 12mm;box-shadow:0 2px 14px rgba(15,23,42,.14)}
+.rp-brandbar{display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #b45309;padding-bottom:10px}
+.rp-brand{display:flex;align-items:center;gap:8px}
+.rp-logo{width:34px;height:34px;background:#b45309;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;overflow:hidden}
+.rp-logo img{width:100%;height:100%;object-fit:cover}
+.rp-company{font-size:16px;font-weight:700;color:#0f172a}
+.rp-doctype h1{font-size:20px;font-weight:800;color:#b45309;letter-spacing:.5px;text-align:right}
+.rp-meta{margin-top:8px;display:flex;justify-content:space-between;font-size:10.5px;color:#64748b;flex-wrap:wrap;gap:4px}
+.rp-section{margin-top:16px}
+.rp-section h2{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#b45309;border-bottom:1px solid #f1d9b7;padding-bottom:4px;margin-bottom:8px}
+.rp-stats{display:flex;gap:10px;margin-top:2px}
+.rp-stat{flex:1;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;background:#fafbfc}
+.rp-stat .lbl{font-size:9.5px;color:#8da0c0;text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px}
+.rp-stat .val{font-size:15px;font-weight:700;color:#0f172a;white-space:nowrap}
+table.rp-table{width:100%;border-collapse:collapse;margin-top:2px}
+.rp-table th{background:#b45309;color:#fff;font-size:10.5px;font-weight:600;text-align:left;padding:7px 9px;border:1px solid #92400e;white-space:nowrap}
+.rp-table td{padding:6px 9px;border:1px solid #e5e7eb;font-size:11px;color:#334155}
+.rp-table tbody tr:nth-child(even) td{background:#fafbfc}
+.rp-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.rp-total td{background:#fff7ed !important;font-weight:700;border-top:2px solid #b45309}
+.rp-foot{margin-top:22px;padding-top:8px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;font-size:9.5px;color:#94a3b8}
+@media print{
+    body{background:#fff;padding:0}
+    .rp-sheet{box-shadow:none;width:auto;min-height:auto;padding:8mm 6mm}
+    .rp-section{break-inside:avoid-page}
+    @page{size:A4 portrait;margin:10mm}
+}

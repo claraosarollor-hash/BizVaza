@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BizVaza — Contact Us</title>
+        <meta name="description" content="Contact BizVaza support. Email us, chat on WhatsApp, or schedule a callback. We're here to help Nigerian businesses get paid faster." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="BizVaza" />
+        <meta property="og:title" content="BizVaza — Contact Us" />
+        <meta property="og:description" content="Contact BizVaza support. Email us, chat on WhatsApp, or schedule a callback." />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="BizVaza — Contact Us" />
+        <meta name="twitter:description" content="Contact BizVaza support. Email us, chat on WhatsApp, or schedule a callback." />
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11 2L4 11h7l-2 7 9-10h-7l2-8z' fill='%23b45309'/%3E%3C/svg%3E" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: "Inter", sans-serif;
+                background: #fff;
+                color: #111;
+                line-height: 1.5;
+            }
+
+            /* ── NAV ── */
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 48px;
+                height: 64px;
+                border-bottom: 1px solid #eee;
+                position: sticky;
+                top: 0;
+                background: #fff;
+                z-index: 100;
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                text-decoration: none;
+            }
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                background: #0d2141;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .logo-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+            .logo-text {
+                display: flex;
+                flex-direction: column;
+                line-height: 1.1;
+            }
+            .logo-text .brand {
+                font-size: 15px;
+                font-weight: 800;
+                color: #111;
+                letter-spacing: 0.03em;
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 32px;
+                list-style: none;
+            }
+            .nav-links a {
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                color: #444;
+            }
+            .nav-links a:hover {
+                color: #111;
+            }
+            .nav-links .active {
+                color: #b45309;
+                font-weight: 600;
+            }
+            .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:4px}
+
+            .nav-actions {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .btn-login {
+                font-size: 14px;
+                font-weight: 500;
+                color: #111;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            .btn-primary {
+                background: #b45309;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+            .btn-primary:hover {
+                background: #b45309;
+            }
+
+            /* ── PAGE LAYOUT ── */
+            .page {
+                max-width: 1160px;
+                margin: 0 auto;
+                padding: 48px 32px 80px;
+            }
+
+            .page-title {
+                font-size: 40px;
+                font-weight: 800;
+                color: #111;
+                margin-bottom: 32px;
+                letter-spacing: -0.5px;
+            }
+
+            .two-col {
+                display: grid;
+                grid-template-columns: 1fr 1.05fr;
+                gap: 28px;
+                align-items: start;
+            }
+
+            /* ── CONTACT FORM CARD ── */
+            .form-card {
+                background: #fff;
+                border-radius: 14px;
+                border: 1px solid #e5e7eb;
+                padding: 36px 32px 40px;
+            }
+            .form-card h2 {
+                font-size: 22px;
+                font-weight: 700;
+                color: #111;
+                margin-bottom: 28px;
+            }
+
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-bottom: 20px;
+            }
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+            .form-group.full {
+                margin-bottom: 20px;
+            }
+
+            label {
+                font-size: 13px;
+                font-weight: 500;
+                color: #333;
+            }
+            input[type="text"],
+            input[type="email"],
+            textarea {
+                width: 100%;
+                border: 1px solid #e5e7eb;
+                border-radius: 7px;
+                padding: 10px 13px;
+                font-size: 14px;
+                font-family: "Inter", sans-serif;
+                color: #111;
+                background: #fff;
+                outline: none;
+                resize: none;
+                transition: border-color 0.15s;
+            }
+            input:focus,
+            textarea:focus {
+                border-color: #b45309;
+            }
+            textarea {
+                height: 140px;
+            }
+
+            .btn-send {
+                background: #b45309;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                padding: 11px 32px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 8px;
+            }
+            .btn-send:hover {
+                background: #b45309;
+            }
+            .form-status {
+                margin-top: 12px;
+                padding: 10px 14px;
+                border-radius: 8px;
+                font-size: 13px;
+                font-weight: 500;
+                display: none;
+                text-align: left;
+                line-height: 1.5;
+            }
+            .form-status.show {
+                display: block;
+            }
+            .form-status.success {
+                background: #ecfdf5;
+                color: #065f46;
+                border: 1px solid #a7f3d0;
+            }
+            .form-status.error {
+                background: #fef2f2;
+                color: #991b1b;
+                border: 1px solid #fecaca;
+            }
+            .cb-form .form-status {
+                background: rgba(255, 255, 255, 0.95);
+            }
+
+            /* ── RIGHT PANEL ── */
+            .right-panel {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            /* Support Card */
+            .support-card {
+                background: #0d2141;
+                border-radius: 14px;
+                padding: 28px 28px 24px;
+                color: #fff;
+            }
+            .support-card .card-eyebrow {
+                font-size: 11px;
+                font-weight: 600;
+                color: #8da0c0;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-bottom: 6px;
+            }
+            .support-card h3 {
+                font-size: 20px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 24px;
+            }
+
+            .support-options {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                margin-bottom: 0;
+            }
+            .support-option {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .support-icon {
+                width: 56px;
+                height: 56px;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .support-icon svg {
+                width: 44px;
+                height: 44px;
+                stroke: #fff;
+                fill: none;
+                stroke-width: 1.6;
+            }
+            .support-option h4 {
+                font-size: 13px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 4px;
+            }
+            .support-option .sub-note {
+                font-size: 10px;
+                color: #8da0c0;
+                margin-bottom: 12px;
+                line-height: 1.4;
+            }
+            .btn-support {
+                border: none;
+                border-radius: 7px;
+                padding: 8px 14px;
+                font-size: 11px;
+                font-weight: 600;
+                cursor: pointer;
+                white-space: nowrap;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .btn-support.email-btn {
+                background: #b45309;
+                color: #fff;
+            }
+            .btn-support.email-btn:hover {
+                background: #b45309;
+            }
+            .btn-support.wa-btn {
+                background: #b45309;
+                color: #fff;
+            }
+            .btn-support.wa-btn:hover {
+                background: #b45309;
+            }
+            .btn-support.cb-btn {
+                background: #b45309;
+                color: #fff;
+            }
+            .btn-support.cb-btn:hover {
+                background: #b45309;
+            }
+
+            /* Callback Form */
+            .cb-form {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 16px;
+                padding-top: 16px;
+                border-top: 1px solid rgba(255,255,255,0.15);
+            }
+            .cb-form.cb-open {
+                display: flex;
+            }
+            .cb-form h4 {
+                font-size: 14px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 2px;
+            }
+            .cb-form input,
+            .cb-form textarea {
+                width: 100%;
+                border: 1px solid rgba(255,255,255,0.2);
+                border-radius: 7px;
+                padding: 9px 12px;
+                font-size: 13px;
+                font-family: "Inter", sans-serif;
+                color: #111;
+                background: #fff;
+                outline: none;
+            }
+            .cb-form input:focus,
+            .cb-form textarea:focus {
+                border-color: #b45309;
+            }
+
+            /* Location Card */
+            .location-card {
+                background: #0d2141;
+                border-radius: 14px;
+                overflow: hidden;
+                color: #fff;
+            }
+            .location-header {
+                padding: 22px 28px 16px;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 12px;
+            }
+            .location-header-text h3 {
+                font-size: 18px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 4px;
+            }
+            .location-header-text p {
+                font-size: 12px;
+                color: #8da0c0;
+            }
+            .btn-maps {
+                background: #fff;
+                color: #111;
+                border: none;
+                border-radius: 7px;
+                padding: 8px 14px;
+                font-size: 11px;
+                font-weight: 600;
+                cursor: pointer;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            .btn-maps:hover {
+                background: #f9fafb;
+            }
+
+            /* Map embed placeholder styled to match screenshot */
+            .map-container {
+                position: relative;
+                width: 100%;
+                height: 200px;
+                background: #e8e4dc;
+                overflow: hidden;
+            }
+            .map-container iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                display: block;
+            }
+            /* Map overlay info box */
+            .map-info-box {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                background: #fff;
+                border-radius: 8px;
+                padding: 10px 14px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+                max-width: 180px;
+            }
+            .map-info-box .map-title {
+                font-size: 11px;
+                font-weight: 700;
+                color: #111;
+                margin-bottom: 3px;
+            }
+            .map-info-box .map-addr {
+                font-size: 10px;
+                color: #666;
+                line-height: 1.4;
+            }
+
+            /* Map pin SVG fallback */
+            .map-bg {
+                width: 100%;
+                height: 100%;
+                background: #dde8d8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .map-roads {
+                position: absolute;
+                inset: 0;
+            }
+            .map-label-location {
+                position: absolute;
+                bottom: 28px;
+                right: 28px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #888;
+                letter-spacing: -0.3px;
+            }
+            .map-pin {
+                position: absolute;
+                top: 50%;
+                left: 55%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                pointer-events: none;
+            }
+            .map-pin-head {
+                width: 22px;
+                height: 22px;
+                background: #b45309;
+                border-radius: 50% 50% 50% 0;
+                transform: rotate(-45deg);
+                margin-bottom: -2px;
+                border: 2px solid #fff;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            }
+
+            @media (max-width: 900px) {
+                nav {
+                    padding: 0 20px;
+                }
+                .hamburger{display:block}
+                .nav-actions{margin-left:auto}
+                #mobileNav{display:flex;flex-direction:column;position:fixed;top:64px;left:0;width:100%;background:#fff;border-bottom:1px solid #eee;padding:16px 24px;gap:4px;transform:translateY(-120%);opacity:0;transition:transform .3s ease,opacity .3s ease;pointer-events:none;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+                #mobileNav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+                #mobileNav li{width:100%}
+                #mobileNav a{display:block;padding:10px 0;font-size:15px;font-weight:500;color:#333;text-decoration:none;border-bottom:1px solid #f5f5f5}
+                #mobileNav a.active{color:#b45309;font-weight:700}
+                .nav-actions .btn-login{font-size:13px}
+                .nav-actions .btn-primary{padding:8px 14px;font-size:13px}
+                .two-col {
+                    grid-template-columns: 1fr;
+                }
+                .page {
+                    padding: 32px 20px 60px;
+                }
+                .page-title {
+                    font-size: 28px;
+                }
+                .support-options {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+            }
+            footer {
+                background: #f9fafb; border-top: 1px solid #e5e7eb;
+                padding: 24px 48px; text-align: center;
+            }
+            footer p { font-size: 13px; color: #888; }
+        </style>
+    </head>
+    <body>
+        <!-- NAV -->
+        <nav>
+            <a class="logo" href="index.html">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 2L4 11h7l-2 7 9-10h-7l2-8z" fill="#fff" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="brand">BizVaza</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="mobileNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="pricing.php">Pricing</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="contact-us.html" class="active">Contact Us</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.php" style="text-decoration:none"><button class="btn-login">Login</button></a>
+                <a href="register.php" style="text-decoration:none"><button class="btn-primary">Get Started</button></a>
+            </div>
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </nav>
+
+        <!-- PAGE -->
+        <div class="page">
+            <h1 class="page-title">Contact Us</h1>
+
+            <div class="two-col">
+                <!-- LEFT: Form -->
+                <div class="form-card">
+                    <h2>Send Us a Message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cf-name">Full Name</label>
+                                <input type="text" id="cf-name" name="name" placeholder="Your name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="cf-email">Email Address</label>
+                                <input type="email" id="cf-email" name="email" placeholder="your@email.com" required />
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label for="cf-subject">Subject</label>
+                            <input type="text" id="cf-subject" name="subject" placeholder="What's this about?" required />
+                        </div>
+                        <div class="form-group full">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" placeholder="Tell us more…" required></textarea>
+                        </div>
+                        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                        <button type="submit" class="btn-send" id="cf-submit">Send Message</button>
+                        <div class="form-status" id="cf-status"></div>
+                    </form>
+                    <script>
+                        document.getElementById('contact-form').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            var form = this;
+                            var status = document.getElementById('cf-status');
+                            var submit = document.getElementById('cf-submit');
+                            var body = new FormData(form);
+                            body.append('action', 'message');
+                            submit.disabled = true;
+                            status.className = 'form-status show';
+                            status.textContent = 'Sending…';
+                            fetch('ajax/contact-request.php', { method: 'POST', body: body })
+                                .then(function(r) {
+                                    return r.json().then(function(d) { return { ok: r.ok, d: d }; });
+                                })
+                                .then(function(res) {
+                                    if (res.ok && res.d.ok) {
+                                        status.className = 'form-status show success';
+                                        status.textContent = res.d.message || 'Thank you! Your message has been sent.';
+                                        form.reset();
+                                    } else {
+                                        status.className = 'form-status show error';
+                                        status.textContent = (res.d && res.d.error) || 'Something went wrong. Please try again.';
+                                    }
+                                })
+                                .catch(function() {
+                                    status.className = 'form-status show error';
+                                    status.textContent = 'Network error. Please try again.';
+                                })
+                                .then(function() { submit.disabled = false; });
+                        });
+                    </script>
+                </div>
+
+                <!-- RIGHT: Cards -->
+                <div class="right-panel">
+                    <!-- Support Options -->
+                    <div class="support-card">
+                        <div class="card-eyebrow">BizVaza Support</div>
+                        <h3>Support Options</h3>
+                        <div class="support-options">
+                            <div class="support-option">
+                                <div class="support-icon">
+                                    <svg
+                                        viewBox="0 0 44 44"
+                                        fill="none"
+                                        stroke="#fff"
+                                        stroke-width="1.6"
+                                    >
+                                        <rect
+                                            x="4"
+                                            y="10"
+                                            width="36"
+                                            height="26"
+                                            rx="3"
+                                        />
+                                        <path d="M4 14l18 12 18-12" />
+                                    </svg>
+                                </div>
+                                <h4>Email Support</h4>
+                                <p class="sub-note">
+                                    (Average Response: 2 hours)
+                                </p>
+                                <a href="mailto:bizvaza@gmail.com" class="btn-support email-btn">
+                                    Send an Email
+                                </a>
+                            </div>
+
+                            <div class="support-option">
+                                <div class="support-icon">
+                                    <svg
+                                        viewBox="0 0 44 44"
+                                        fill="none"
+                                        stroke="#fff"
+                                        stroke-width="1.6"
+                                    >
+                                        <path
+                                            d="M38 28c0 3.866-4.03 7-9 7a15.6 15.6 0 01-4.76-.74L17 37l1.58-6.28A13.4 13.4 0 016 22c0-7.732 7.163-14 16-14s16 6.268 16 14z"
+                                        />
+                                    </svg>
+                                </div>
+                                <h4>Chat on WhatsApp</h4>
+                                <p class="sub-note">(Available 24/7)</p>
+                                <a href="https://wa.me/2347073759437" target="_blank" class="btn-support wa-btn">
+                                    Start Live Chat
+                                </a>
+                            </div>
+
+                            <div class="support-option">
+                                <div class="support-icon">
+                                    <svg
+                                        viewBox="0 0 44 44"
+                                        fill="none"
+                                        stroke="#fff"
+                                        stroke-width="1.6"
+                                    >
+                                        <path
+                                            d="M8 8h6l3 8-3.5 3.5a24 24 0 0011 11L28 27l8 3v6c0 2-1.5 3-3 3C15 38 6 29 6 11c0-1.5 1-3 2-3z"
+                                        />
+                                    </svg>
+                                </div>
+                                <h4>Request a Callback</h4>
+                                <p class="sub-note">(Nigeria Business Hours)</p>
+                                <button class="btn-support cb-btn" onclick="document.getElementById('cb-form').classList.toggle('cb-open')">
+                                    Schedule Callback
+                                </button>
+                                <form id="cb-form" class="cb-form" novalidate>
+                                    <h4>Schedule a Callback</h4>
+                                    <input type="text" name="name" placeholder="Your Name" required />
+                                    <input type="text" name="phone" placeholder="Phone Number" required />
+                                    <input type="date" name="date" />
+                                    <input type="time" name="time" />
+                                    <textarea name="message" placeholder="Brief message (optional)" rows="2"></textarea>
+                                    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                                    <button type="submit" class="btn-support email-btn" id="cb-submit" style="width:100%">Send Request</button>
+                                    <div class="form-status" id="cb-status"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById('cb-form').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            var form = this;
+                            var status = document.getElementById('cb-status');
+                            var submit = document.getElementById('cb-submit');
+                            var body = new FormData(form);
+                            body.append('action', 'callback');
+                            submit.disabled = true;
+                            status.className = 'form-status show';
+                            status.textContent = 'Sending…';
+                            fetch('ajax/contact-request.php', { method: 'POST', body: body })
+                                .then(function(r) {
+                                    return r.json().then(function(d) { return { ok: r.ok, d: d }; });
+                                })
+                                .then(function(res) {
+                                    if (res.ok && res.d.ok) {
+                                        status.className = 'form-status show success';
+                                        status.textContent = res.d.message || "Thank you! We'll call you within 24 hours.";
+                                        form.reset();
+                                    } else {
+                                        status.className = 'form-status show error';
+                                        status.textContent = (res.d && res.d.error) || 'Something went wrong. Please try again.';
+                                    }
+                                })
+                                .catch(function() {
+                                    status.className = 'form-status show error';
+                                    status.textContent = 'Network error. Please try again.';
+                                })
+                                .then(function() { submit.disabled = false; });
+                        });
+                    </script>
+
+                    <!-- Location -->
+                    <div class="location-card">
+                        <div class="location-header">
+                            <div class="location-header-text">
+                                <h3>Location Details</h3>
+                                <p>BizVaza HQ, Port Harcourt, Rivers State, Nigeria</p>
+                            </div>
+                            <a href="https://www.google.com/maps/search/Port+Harcourt+Rivers+State+Nigeria" target="_blank" class="btn-maps" style="text-decoration:none">
+                                View on Google Maps
+                            </a>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="map-container">
+                            <div class="map-bg">
+                                <!-- SVG road grid to mimic map tiles -->
+                                <svg
+                                    class="map-roads"
+                                    viewBox="0 0 500 200"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <!-- Water/background -->
+                                    <rect
+                                        width="500"
+                                        height="200"
+                                        fill="#d4e8c8"
+                                    />
+                                    <!-- Water body bottom right -->
+                                    <ellipse
+                                        cx="420"
+                                        cy="160"
+                                        rx="120"
+                                        ry="70"
+                                        fill="#b8d4e8"
+                                        opacity="0.7"
+                                    />
+                                    <!-- Major roads -->
+                                    <line
+                                        x1="0"
+                                        y1="80"
+                                        x2="500"
+                                        y2="80"
+                                        stroke="#fff"
+                                        stroke-width="5"
+                                    />
+                                    <line
+                                        x1="0"
+                                        y1="120"
+                                        x2="500"
+                                        y2="120"
+                                        stroke="#fff"
+                                        stroke-width="3"
+                                    />
+                                    <line
+                                        x1="120"
+                                        y1="0"
+                                        x2="120"
+                                        y2="200"
+                                        stroke="#fff"
+                                        stroke-width="5"
+                                    />
+                                    <line
+                                        x1="260"
+                                        y1="0"
+                                        x2="260"
+                                        y2="200"
+                                        stroke="#fff"
+                                        stroke-width="3"
+                                    />
+                                    <line
+                                        x1="380"
+                                        y1="0"
+                                        x2="380"
+                                        y2="200"
+                                        stroke="#fff"
+                                        stroke-width="3"
+                                    />
+                                    <!-- Minor roads -->
+                                    <line
+                                        x1="0"
+                                        y1="50"
+                                        x2="500"
+                                        y2="50"
+                                        stroke="#fff"
+                                        stroke-width="1.5"
+                                        opacity="0.7"
+                                    />
+                                    <line
+                                        x1="0"
+                                        y1="150"
+                                        x2="500"
+                                        y2="150"
+                                        stroke="#fff"
+                                        stroke-width="1.5"
+                                        opacity="0.7"
+                                    />
+                                    <line
+                                        x1="60"
+                                        y1="0"
+                                        x2="60"
+                                        y2="200"
+                                        stroke="#fff"
+                                        stroke-width="1.5"
+                                        opacity="0.7"
+                                    />
+                                    <line
+                                        x1="190"
+                                        y1="0"
+                                        x2="190"
+                                        y2="200"
+                                        stroke="#fff"
+                                        stroke-width="1.5"
+                                        opacity="0.7"
+                                    />
+                                    <line
+                                        x1="320"
+                                        y1="0"
+                                        x2="320"
+                                        y2="200"
+                                        stroke="#fff"
+                                        stroke-width="1.5"
+                                        opacity="0.7"
+                                    />
+                                    <!-- Road labels style blocks -->
+                                    <rect
+                                        x="0"
+                                        y="76"
+                                        width="500"
+                                        height="8"
+                                        fill="#e8e0d0"
+                                        opacity="0.3"
+                                    />
+                                </svg>
+
+                                <!-- Pin -->
+                                <div class="map-pin">
+                                    <div class="map-pin-head"></div>
+                                </div>
+
+                                <div class="map-label-location">Port Harcourt</div>
+                            </div>
+
+                            <!-- Info overlay -->
+                            <div class="map-info-box">
+                                <div class="map-title">
+                                    Nigeria Office Location
+                                </div>
+                                <div class="map-addr">
+                                    BizVaza HQ, Port Harcourt, Rivers State, Nigeria
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 BizVaza. Built for Nigerian businesses. All rights reserved. &middot; <a href="admin/login.php" style="color:#94a3b8;text-decoration:none">Admin</a></p>
+        </footer>
+<script>/*(function(){function c(e){e.preventDefault()}document.addEventListener('contextmenu',c);function k(e){if(e.key==='F12'||e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J')||e.ctrlKey&&e.key==='U')e.preventDefault()}document.addEventListener('keydown',k)})();*/
+function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open')}
+</script>
+    </body>
+</html>

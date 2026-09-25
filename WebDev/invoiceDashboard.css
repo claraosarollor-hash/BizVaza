@@ -1,0 +1,281 @@
+
+/* App Main Panel Area */
+.main-content { 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Content */
+.invoice-content {
+    padding: 28px 36px;
+    flex: 1;
+}
+
+/* Document Base Container Sheet */
+.form-card { 
+    background: #fff; 
+    padding: 32px; 
+    border-radius: 12px; 
+    border: 1px solid #e5e7eb;
+    max-width: 1100px;
+    width: 100%; 
+}
+
+.form-card h2 { 
+    font-size: 18px; 
+    font-weight: 600;
+    color: #0f172a; 
+    margin-bottom: 20px; 
+    margin-top: 24px;
+}
+
+.form-card h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Fields & Layout Grids */
+.grid-3 { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 16px; 
+    margin-bottom: 20px; 
+}
+
+.grid-2 { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px; 
+    margin-bottom: 20px; 
+}
+
+.bottom-layout-grid {
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 40px; 
+    margin-top: 20px;
+}
+
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    margin-bottom: 20px; 
+}
+
+.form-group-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+label { 
+    font-size: 13px; 
+    font-weight: 500; 
+    color: #3a4559; 
+}
+
+.action-link { 
+    font-size: 12px; 
+    color: #b45309; 
+    text-decoration: none; 
+    font-weight: 500; 
+}
+
+input, select, textarea { 
+    padding: 8px 12px; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 8px; 
+    font-size: 13px; 
+    color: #0f172a; 
+    width: 100%; 
+    background: #fff; 
+    font-family: 'Inter', sans-serif;
+}
+
+input:focus, select:focus, textarea:focus { 
+    outline: none; 
+    border-color: #b45309; 
+}
+
+/* Dynamic Line Items Section */
+.items-section { 
+    margin-top: 32px; 
+}
+
+.table-header { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1.8fr 0.7fr 0.5fr 1.2fr 1.2fr 0.3fr; 
+    gap: 10px; 
+    padding-bottom: 8px; 
+    margin-bottom: 12px; 
+}
+
+.table-row { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1.8fr 0.7fr 0.5fr 1.2fr 1.2fr 0.3fr; 
+    gap: 10px; 
+    align-items: center; 
+    margin-bottom: 12px; 
+}
+
+.btn-delete { 
+    background: none; 
+    border: none; 
+    color: #6b7a90; 
+    cursor: pointer; 
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color .13s,background .13s;
+}
+
+.btn-delete:hover { 
+    color: #ef4444; 
+    background: #fef2f2;
+}
+
+.btn-add { 
+    background: none; 
+    border: 1px solid #e5e7eb; 
+    padding: 8px 16px; 
+    border-radius: 8px; 
+    font-size: 13px; 
+    font-weight: 500; 
+    color: #b45309; 
+    cursor: pointer; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 6px; 
+    margin-top: 8px; 
+    font-family: 'Inter', sans-serif;
+}
+
+/* Microphone  */
+.mic-action-btn{
+  background: #b45309;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.mic-action-btn:hover{
+  background: #b45309;
+}
+
+/* Calculation & Summary Blocks */
+.summary-container { 
+    margin-top: 32px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end; 
+    gap: 16px; 
+    width: 100%; 
+    padding-top: 20px; 
+}
+
+.summary-row { 
+    display: flex; 
+    justify-content: space-between; 
+    max-width: 340px; 
+    width: 100%;
+    font-size: 16px; 
+    align-items: center; 
+}
+
+.summary-label {
+    color: #64748b; 
+    font-weight: 500;
+}
+
+.summary-value {
+    color: #1b1b1b;
+}
+
+.summary-row.total { 
+    font-size: 16px; 
+    font-weight: 700; 
+    color: #b45309; 
+    margin-top: 8px; 
+}
+
+.discount-box { 
+    display: flex; 
+    gap: 8px; 
+    width: 100%;
+    max-width: 160px; 
+}
+
+.discount-box select {
+    padding: 6px 10px;
+}
+
+.discount-box input {
+    padding: 6px 10px;
+    text-align: center;
+}
+/* Generate Button */
+.generate-btn{
+  width: 100%;
+  background: #b45309;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  text-decoration: none;
+  align-items: center;
+}
+
+.generate-btn:hover{
+  background: #a8431a;
+}
+
+.generate-btn:active{
+  transform: scale(0.98);
+}
+
+/* MOBILE */
+@media (max-width: 420px){
+  body{
+    padding: 0;}
+    .phone-card{
+      border-radius: 0;
+      min-height: 100vh;
+      box-shadow: none;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .grid-3{grid-template-columns:1fr;gap:12px}
+  .grid-2{grid-template-columns:1fr;gap:12px}
+  .invoice-content{padding:16px!important}
+  .form-card{padding:16px}
+  .items-section{overflow-x:auto}
+  .table-header,.table-row{min-width:600px}
+  .table-row{grid-template-columns:1fr 1fr 80px 60px 100px 100px 30px!important;gap:8px}
+  .table-header{grid-template-columns:1fr 1fr 80px 60px 100px 100px 30px!important;gap:8px;font-size:11px}
+  .bottom-layout-grid{grid-template-columns:1fr;gap:16px}
+  .generate-btn{width:100%}
+  .bottom-layout-grid .total-summary-text{font-size:13px}
+  .bottom-layout-grid .due-amount-text{font-size:18px}
+}
+@media(max-width:480px){
+  .table-header,.table-row{min-width:unset!important;grid-template-columns:1fr 50px 80px 80px 30px!important}
+  .table-header > :nth-child(2),.table-row > :nth-child(2),.table-header > :nth-child(3),.table-row > :nth-child(3){display:none}
+  .form-card h2{font-size:15px}
+}

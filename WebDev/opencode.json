@@ -1,0 +1,21 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+        "open-design": {
+            "type": "local",
+            "command": [
+                "C:\\Users\\UK\\AppData\\Local\\Programs\\Open Design\\Open Design.exe",
+                "C:\\Users\\UK\\AppData\\Local\\Programs\\Open Design\\resources\\app\\prebundled\\daemon\\daemon-cli.mjs",
+                "mcp"
+            ],
+            "enabled": true,
+            "environment": {
+                "OD_DATA_DIR": "C:\\Users\\UK\\AppData\\Roaming\\Open Design\\namespaces\\release-stable-win\\data",
+                "OD_SIDECAR_IPC_PATH": "\\\\.\\pipe\\open-design-release-stable-win-daemon",
+                "OD_MCP_BOOTSTRAP_COMMAND": "C:\\Users\\UK\\AppData\\Local\\Programs\\Open Design\\Open Design.exe",
+                "OD_MCP_BOOTSTRAP_ARGS": "[\"--headless\"]",
+                "ELECTRON_RUN_AS_NODE": "1"
+            }
+        }
+    }
+}

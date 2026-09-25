@@ -1,0 +1,685 @@
+/* Core Configurations & Global Resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #F8F9FC;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: #1A1C23;
+    min-height: 100vh;
+}
+
+body > div:first-child {
+    flex: 1 0 auto;
+}
+
+/* --- Main Workspace Pane Layout --- */
+.main-content {
+    flex-grow: 1;
+    padding: 24px 48px 48px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    min-width: 0;
+}
+
+/* --- Top Sticky Action Header Row --- */
+.action-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.header-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Button Variants Styling */
+.btn-secondary {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+}
+
+.btn-secondary .icon {
+    width: 16px;
+    height: 16px;
+    color: #64748B;
+}
+
+/* Unified Split Button Action Trigger */
+.split-button-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary-main {
+    background-color: #B45309;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary-main:hover, .btn-primary-arrow:hover {
+    opacity: 90%;
+}
+
+.btn-primary-main .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-primary-arrow {
+    background-color: #B45309;
+    border: none;
+    padding: 15px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Document Preview Sheet Card Container --- */
+.preview-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+    overflow: visible;
+    min-width: 0;
+}
+
+/* Printable Inner Container Sheet Frame */
+.invoice-printable-sheet {
+    padding: 40px;
+    width: 720px;
+    margin: 0 auto;
+    transform-origin: top left;
+}
+
+/* Scale-to-fit wrapper: fixed desktop layout, scaled down on small screens */
+.sheet-scroll {
+    overflow: hidden;
+}
+
+/* Top Meta Segment Block Elements */
+.invoice-meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+}
+
+.brand-identity {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.brand-logo-icon {
+    width: 44px;
+    height: 44px;
+    color: #B45309;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.brand-logo-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.brand-logo-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.company-name {
+    font-size: 28px;
+    font-weight: 800;
+    color: #070b14;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.company-address, .company-contact {
+    font-size: 13px;
+    color: #64748B;
+    line-height: 1.4;
+}
+
+.company-address {
+    margin-bottom: 4px;
+}
+
+/* Right Metadata Context State Elements */
+.document-status-block {
+    text-align: right;
+}
+
+.status-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+
+.status-badge.pending {
+    background-color: #FFFAEB;
+    color: #B45309;
+}
+
+.document-type-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.invoice-id-number {
+    font-size: 15px;
+    font-weight: 700;
+    color: #B45309;
+    margin-bottom: 16px;
+}
+
+/* Compact Dates Grid Sub-Table */
+.date-summary-table {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.date-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    font-size: 13px;
+}
+
+.date-label {
+    color: #64748B;
+    font-weight: 500;
+}
+
+.date-val {
+    color: #1E293B;
+    font-weight: 600;
+    min-width: 90px;
+    text-align: right;
+}
+
+/* Client Informational Address Frame */
+.bill-to-section {
+    margin-bottom: 32px;
+}
+
+.bill-to-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #B45309;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.client-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 4px;
+}
+
+.client-meta {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.4;
+}
+
+/* --- Rendered Receipt Table Architecture --- */
+.receipt-table {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.table-header-row, .table-data-row {
+    display: grid;
+    /* Rebalanced widths slightly so longer descriptions never push content out of place */
+    grid-template-columns: 40px 3.8fr 50px 1.5fr 1.5fr;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 16px;
+}
+
+/* Content Segment Row Contrast Themes */
+.table-header-row {
+    background-color: #0B1120;
+    border-radius: 6px;
+    color: #FFFFFF;
+}
+
+.table-header-row div {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.table-data-row {
+    border-bottom: 1px solid #F1F5F9;
+    color: #475569;
+    font-size: 14px;
+}
+
+/* Data Column Content Alignment Rules */
+.col-idx { text-align: left; }
+.col-desc { text-align: left; word-break: break-word; overflow-wrap: break-word; }
+.col-qty { text-align: center; }
+.col-price { text-align: right; }
+.col-total { text-align: right; }
+
+.highlight-text { word-break: break-word; overflow-wrap: break-word;
+    color: #0F172A;
+    font-weight: 600;
+}
+
+/* --- Financial Calculation Systems Summary --- */
+.financials-summary-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+}
+
+.financials-inner-box {
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-line-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.lbl {
+    color: #475569;
+    font-weight: 500;
+}
+
+.bold-dark {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+/* Distinct Total Pricing Accents */
+.total-row-divider {
+    border-top: 1px dashed #E2E8F0;
+    padding-top: 14px;
+    margin-top: 4px;
+}
+
+.lbl-total {
+    color: #B45309;
+    font-weight: 700;
+}
+
+.val-total {
+    color: #B45309;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+/* --- Operational Miscellaneous Details Bottom Layout Grid --- */
+.invoice-bottom-details-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    background-color: #F8FAFC;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #F1F5F9;
+}
+
+.details-pane-block h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #B45309;
+    margin-bottom: 8px;
+}
+
+.pane-content-text {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Dense Data Matrix Element Core */
+.banking-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.banking-details-table td {
+    padding: 4px 0;
+    vertical-align: top;
+    color: #475569;
+}
+
+.banking-details-table td:first-child {
+    width: 110px;
+    font-weight: 500;
+}
+
+
+.banking-details-table td.bold-dark {
+    font-weight: 700;
+}
+
+/* --- Distribution Action Footer Row Utilities --- */
+.distribution-footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 40px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E2E8F0;
+    border-radius: 0 0 16px 16px;
+}
+
+.btn-receipt-action {
+    background-color: #059669;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.btn-receipt-action:hover {
+    background-color: #047857;
+}
+
+.btn-receipt-muted {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #334155;
+}
+
+.btn-receipt-muted:hover {
+    background-color: #F1F5F9;
+    border-color: #CBD5E1;
+    color: #1E293B;
+}
+
+.mark-balance-form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.btn-utility-action {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+}
+
+.btn-utility-action:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+}
+
+.btn-whatsapp-action {
+    background-color: #B45309;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.btn-whatsapp-action:hover {
+    opacity: 95%;
+}
+
+/* Download split control */
+.download-wrap {
+    position: relative;
+    display: inline-flex;
+}
+.download-chevron {
+    width: 12px;
+    height: 12px;
+    margin-left: 2px;
+}
+.download-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 210px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+    display: none;
+    z-index: 120;
+    overflow: hidden;
+    padding: 6px;
+}
+.download-menu.show {
+    display: block;
+}
+.download-menu-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 12px;
+    border: none;
+    background: none;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: background-color .12s ease;
+}
+.download-menu-item .btn-icon {
+    color: #64748b;
+    flex-shrink: 0;
+}
+.download-menu-item:hover {
+    background: #F8FAFC;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+@media print {
+    body {
+        background: #fff !important;
+    }
+    .main-content > a:first-child,
+    .distribution-footer-row,
+    footer {
+        display: none !important;
+    }
+    .main-content {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .preview-card {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+    .sheet-scroll {
+        overflow: visible !important;
+        height: auto !important;
+    }
+    .invoice-printable-sheet {
+        padding: 20px !important;
+        transform: none !important;
+        width: 720px;
+    }
+    .invoice-bottom-details-grid {
+        break-inside: avoid;
+    }
+}
+
+/* Export capture reset: full-width capture for WhatsApp/PDF, identical on all devices */
+.js-capture .preview-card,
+.js-capture .sheet-scroll {
+    overflow: visible !important;
+}
+.js-capture .invoice-printable-sheet {
+    transform: none !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .main-content{padding:16px!important;margin:0}
+  .distribution-footer-row{flex-wrap:wrap;padding:16px 20px}
+  .btn-receipt-action,.btn-utility-action,.btn-whatsapp-action{width:100%;justify-content:center;padding:12px 16px;font-size:13px}
+  .mark-balance-form{width:100%;display:flex}
+  .download-wrap{width:100%}
+  .download-menu{left:0;right:0;min-width:0}
+  .action-header{justify-content:stretch}
+  .header-actions-right{width:100%;flex-direction:column;gap:8px}
+  .btn-secondary,.btn-primary-main{width:100%;justify-content:center}
+  .split-button-wrapper{width:100%}
+  .btn-primary-main{flex:1}
+}
+
+/* ===== Template Theme Variants ===== */
+.d-modern .brand-logo-icon { background: #0d2141; color: #fff; }
+.d-modern .document-type-title { color: #0d2141; }
+
+.d-classic .brand-logo-icon { background: #166534; color: #fff; }
+.d-classic .document-type-title { color: #166534; }
+.d-classic .invoice-printable-sheet { border: 1px solid #cbd5e1; }
+
+.d-minimal .brand-logo-icon { background: #475569; border-radius: 50%; color: #fff; }
+.d-minimal .document-type-title { color: #475569; font-weight: 500; }
+.d-minimal .table-header-row { color: #94a3b8; }
+
+.d-professional .brand-logo-icon { background: #0f766e; color: #fff; }
+.d-professional .document-type-title { color: #14b8a6; }
+.d-professional .invoice-printable-sheet { border-color: #0f172a; background: #fcfdff; }
+
+.d-creative .brand-logo-icon { background: #7c3aed; color: #fff; }
+.d-creative .document-type-title { color: #7c3aed; }
+.d-creative .invoice-printable-sheet { border-top: 3px solid #7c3aed; }
+.d-creative .table-header-row { color: #7c3aed; }
+
+.d-bold { --bold-text: rgba(255,255,255,.85); --bold-muted: rgba(255,255,255,.5); --bold-dim: rgba(255,255,255,.35); }
+.d-bold .brand-logo-icon { background: #dc2626; color: #fff; }
+.d-bold .document-type-title { color: var(--bold-muted); }
+.d-bold .invoice-printable-sheet { background: #0f172a; border-color: #0f172a; }
+.d-bold .company-name { color: #fff; }
+.d-bold .company-address,
+.d-bold .company-contact { color: var(--bold-muted); }
+.d-bold .invoice-id-number { color: var(--bold-dim); }
+.d-bold .date-label { color: var(--bold-muted); }
+.d-bold .date-val { color: var(--bold-text); }
+.d-bold .bill-to-section h3 { color: var(--bold-dim); }
+.d-bold .client-name { color: #fff; }
+.d-bold .client-meta { color: var(--bold-muted); }
+.d-bold .table-header-row { color: var(--bold-dim); }
+.d-bold .table-data-row { color: var(--bold-text); border-bottom-color: rgba(255,255,255,.06); }
+.d-bold .summary-line-row,
+.d-bold .lbl { color: var(--bold-muted); }
+.d-bold .bold-dark { color: var(--bold-text) !important; }
+.d-bold .lbl-total { color: #f87171; }
+.d-bold .val-total { color: #f87171; }
+.d-bold .invoice-bottom-details-grid { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+.d-bold .details-pane-block h4 { color: #f87171; }
+.d-bold .pane-content-text { color: var(--bold-muted); }
+.d-bold .banking-details-table td { color: var(--bold-muted); }
+.d-bold .date-row { color: var(--bold-muted); }
+
+.d-receipt-standard .brand-logo-icon { background: #2563eb; color: #fff; }
+.d-receipt-standard .document-type-title { color: #2563eb; }
+
+.d-receipt-simple .brand-logo-icon { background: #059669; border-radius: 50%; color: #fff; }
+.d-receipt-simple .document-type-title { color: #059669; font-weight: 500; }
+.d-receipt-simple .table-header-row { color: #6ee7b7; }
+
+.d-receipt-detailed .brand-logo-icon { background: #e11d48; color: #fff; }
+.d-receipt-detailed .document-type-title { color: #e11d48; }
+.d-receipt-detailed .invoice-printable-sheet { border-top: 3px solid #e11d48; }
+.d-receipt-detailed .table-header-row { color: #e11d48; }

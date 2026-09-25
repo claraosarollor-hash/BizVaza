@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BizVaza — Templates</title>
+        <meta name="description" content="Browse free, professionally designed invoice and receipt templates for Nigerian businesses. Pick a style, customise it, and start invoicing in seconds." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="BizVaza" />
+        <meta property="og:title" content="BizVaza — Invoice &amp; Receipt Templates" />
+        <meta property="og:description" content="Browse free, professionally designed invoice and receipt templates for Nigerian businesses. Pick a style, customise it, and start invoicing in seconds." />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="BizVaza — Invoice &amp; Receipt Templates" />
+        <meta name="twitter:description" content="Browse free, professionally designed invoice and receipt templates for Nigerian businesses." />
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11 2L4 11h7l-2 7 9-10h-7l2-8z' fill='%23b45309'/%3E%3C/svg%3E" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            body { font-family: "Inter", sans-serif; background: #fff; color: #111; line-height: 1.5; }
+
+            nav {
+                display: flex; align-items: center; justify-content: space-between;
+                padding: 0 48px; height: 64px; border-bottom: 1px solid #eee;
+                position: sticky; top: 0; background: #fff; z-index: 100;
+            }
+            .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+            .logo-icon { width: 36px; height: 36px; background: #0d2141; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+            .logo-icon svg { width: 20px; height: 20px; }
+            .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+            .logo-text .brand { font-size: 15px; font-weight: 800; color: #111; letter-spacing: 0.03em; }
+            .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+            .nav-links a { text-decoration: none; color: #444; font-size: 14px; font-weight: 500; }
+            .nav-links a:hover { color: #111; }
+            .nav-links .active { color: #b45309; font-weight: 600; }
+            .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:4px}
+            .nav-actions { display: flex; align-items: center; gap: 16px; }
+            .btn-login { font-size: 14px; font-weight: 500; color: #111; background: none; border: none; cursor: pointer; }
+            .btn-primary { background: #b45309; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+            .btn-primary:hover { background: #b45309; }
+
+            .hero {
+                text-align: center; padding: 80px 48px 48px; max-width: 1200px; margin: 0 auto;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .hero-badge {
+                display: inline-flex; align-items: center; gap: 6px;
+                color: #b45309; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+            }
+            .hero h1 {
+                font-size: 48px; font-weight: 800; line-height: 1.15; margin-bottom: 20px; color: #0f172a;
+            }
+            .hero h1 span { color: #b45309; }
+            .hero-desc {
+                font-size: 16px; color: #555; margin-bottom: 40px; line-height: 1.7;
+                max-width: 640px; margin-left: auto; margin-right: auto;
+            }
+
+            .tabs {
+                display: flex; align-items: center; justify-content: center; gap: 4px;
+                background: #f1f5f9; border-radius: 10px; padding: 4px;
+                max-width: 400px; margin: 0 auto;
+            }
+            .tab-btn {
+                flex: 1; padding: 10px 20px; border: none; border-radius: 8px;
+                font-size: 14px; font-weight: 600; font-family: "Inter", sans-serif;
+                background: transparent; color: #555; cursor: pointer; transition: all 0.15s;
+            }
+            .tab-btn.active {
+                background: #fff; color: #b45309; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+            }
+
+            .templates-wrap { background: #f8fafc; padding: 64px 48px; }
+            .templates-inner { max-width: 1200px; margin: 0 auto; }
+
+            .tab-content { display: none; }
+            .tab-content.active { display: block; }
+
+            .templates-grid {
+                display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            }
+
+            .template-card {
+                background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+                overflow: hidden; transition: box-shadow 0.15s; cursor: pointer;
+            }
+            .template-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+
+            /* ── Card Mock Preview ── */
+            .mock-preview {
+                padding: 18px 20px 14px; min-height: 260px;
+                display: flex; flex-direction: column;
+                border-bottom: 1px solid #f0f0f0;
+                font-family: "Inter", sans-serif;
+            }
+            .mp-header {
+                display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+            }
+            .mp-logo {
+                width: 28px; height: 28px; border-radius: 6px;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 12px; font-weight: 700;
+            }
+            .mp-label {
+                font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
+            }
+            .mp-company {
+                font-size: 12px; font-weight: 700; margin-bottom: 2px;
+            }
+            .mp-number {
+                font-size: 9px; color: #888; margin-bottom: 10px;
+            }
+            .mp-client-label {
+                font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+                color: #999; margin-bottom: 2px;
+            }
+            .mp-client {
+                font-size: 10px; font-weight: 500; margin-bottom: 12px;
+            }
+            .mp-items {
+                display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; margin-top: auto;
+            }
+            .mp-item {
+                display: flex; justify-content: space-between; align-items: center;
+                padding: 3px 0;
+            }
+            .mp-item .mi-desc { font-size: 9px; }
+            .mp-item .mi-amount { font-size: 9px; font-weight: 600; }
+            .mp-divider { height: 1px; background: #e5e7eb; margin: 4px 0; }
+            .mp-total-row {
+                display: flex; justify-content: space-between; align-items: center;
+                padding: 4px 0 0;
+            }
+            .mp-total-row .mtr-label { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+            .mp-total-row .mtr-amount { font-size: 12px; font-weight: 800; }
+
+            /* Template theme variants */
+            /* ── Card Theme Variants ── */
+            .t-modern .mp-logo { background: #0d2141; color: #fff; }
+            .t-modern .mp-label { color: #0d2141; }
+            .t-modern .mp-company { color: #0d2141; }
+            .t-modern .mp-item { border-bottom: 1px solid #f1f5f9; }
+            .t-modern .mtr-amount { color: #0d2141; }
+
+            .t-classic { border-color: #cbd5e1; }
+            .t-classic .mp-logo { background: #166534; color: #fff; border-radius: 4px; }
+            .t-classic .mp-label { color: #166534; }
+            .t-classic .mock-preview { background: #f0fdf4; }
+            .t-classic .mp-company { color: #166534; }
+            .t-classic .mp-item { border-bottom: 1px dashed #dcfce7; }
+            .t-classic .mtr-amount { color: #166534; }
+
+            .t-minimal .mp-logo { background: #475569; color: #fff; border-radius: 50%; }
+            .t-minimal .mp-label { color: #94a3b8; font-weight: 400; }
+            .t-minimal .mp-company { color: #334155; font-weight: 500; }
+            .t-minimal .mp-item { border-bottom: none; padding: 1px 0; }
+            .t-minimal .mi-desc { color: #94a3b8; }
+            .t-minimal .mp-divider { background: #f1f5f9; }
+            .t-minimal .mtr-amount { color: #334155; }
+
+            .t-professional .mock-preview { background: #0f172a; }
+            .t-professional .mp-logo { background: rgba(255,255,255,.15); color: #fff; }
+            .t-professional .mp-label { color: rgba(255,255,255,.4); }
+            .t-professional .mp-company { color: #fff; }
+            .t-professional .mp-number { color: rgba(255,255,255,.35); }
+            .t-professional .mp-client-label { color: rgba(255,255,255,.3); }
+            .t-professional .mp-client { color: rgba(255,255,255,.7); }
+            .t-professional .mp-item { border-bottom: 1px solid rgba(255,255,255,.06); }
+            .t-professional .mi-desc { color: rgba(255,255,255,.55); }
+            .t-professional .mi-amount { color: #2dd4bf; }
+            .t-professional .mp-divider { background: rgba(255,255,255,.1); }
+            .t-professional .mtr-label { color: rgba(255,255,255,.4); }
+            .t-professional .mtr-amount { color: #2dd4bf; }
+
+            .t-creative .mock-preview { border-top: 4px solid #7c3aed; }
+            .t-creative .mp-logo { background: #7c3aed; color: #fff; border-radius: 4px; }
+            .t-creative .mp-label { color: #7c3aed; }
+            .t-creative .mp-company { color: #0f172a; }
+            .t-creative .mp-item { border-bottom: 1px solid #f3e8ff; }
+            .t-creative .mi-desc { color: #444; }
+            .t-creative .mtr-amount { color: #7c3aed; }
+            .t-creative .mp-total-row { border-top: 2px solid #7c3aed; margin-top: 4px; padding-top: 6px; }
+
+            .t-bold .mock-preview { background: #0f172a; }
+            .t-bold .mp-logo { background: #dc2626; color: #fff; border-radius: 4px; }
+            .t-bold .mp-label { font-size: 12px; color: rgba(255,255,255,.4); }
+            .t-bold .mp-company { font-size: 14px; color: #fff; }
+            .t-bold .mp-number { color: rgba(255,255,255,.3); font-size: 10px; }
+            .t-bold .mp-client-label { color: rgba(255,255,255,.25); }
+            .t-bold .mp-client { color: rgba(255,255,255,.65); font-size: 11px; }
+            .t-bold .mp-item { border-bottom: 1px solid rgba(255,255,255,.06); }
+            .t-bold .mi-desc { color: rgba(255,255,255,.5); }
+            .t-bold .mi-amount { color: #fca5a5; }
+            .t-bold .mp-divider { background: rgba(255,255,255,.1); }
+            .t-bold .mtr-label { color: rgba(255,255,255,.35); }
+            .t-bold .mtr-amount { color: #f87171; font-size: 14px; }
+
+            /* ── Receipt Card Theme Variants ── */
+            .t-receipt-standard .mp-logo { background: #2563eb; color: #fff; border-radius: 4px; }
+            .t-receipt-standard .mp-label { color: #2563eb; }
+            .t-receipt-standard .mp-company { color: #1e40af; }
+            .t-receipt-standard .mp-item { border-bottom: 1px solid #dbeafe; }
+            .t-receipt-standard .mtr-amount { color: #2563eb; }
+
+            .t-receipt-simple .mp-logo { background: #059669; color: #fff; border-radius: 50%; }
+            .t-receipt-simple .mp-label { color: #6ee7b7; font-weight: 400; }
+            .t-receipt-simple .mp-company { color: #065f46; font-weight: 500; }
+            .t-receipt-simple .mp-item { border-bottom: none; padding: 1px 0; }
+            .t-receipt-simple .mi-desc { color: #6b7280; }
+            .t-receipt-simple .mp-divider { background: #f1f5f9; }
+            .t-receipt-simple .mtr-amount { color: #059669; }
+
+            .t-receipt-detailed .mock-preview { border-top: 4px solid #e11d48; }
+            .t-receipt-detailed .mp-logo { background: #e11d48; color: #fff; border-radius: 4px; }
+            .t-receipt-detailed .mp-label { color: #e11d48; }
+            .t-receipt-detailed .mp-company { color: #0f172a; }
+            .t-receipt-detailed .mp-item { border-bottom: 1px solid #ffe4e6; }
+            .t-receipt-detailed .mi-desc { color: #444; }
+            .t-receipt-detailed .mtr-amount { color: #e11d48; }
+            .t-receipt-detailed .mp-total-row { border-top: 2px solid #e11d48; margin-top: 4px; padding-top: 6px; }
+
+            .card-body { padding: 20px; }
+            .card-body h3 { font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
+            .card-body p { font-size: 13px; color: #666; margin-bottom: 12px; line-height: 1.5; }
+            .card-tags { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+            .tag {
+                font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+            }
+            .tag-popular { background: #b45309; color: #fff; }
+            .tag-new { background: #d1fae5; color: #065f46; }
+            .tag-free { background: #e5f1ff; color: #1e40af; }
+
+            .btn-template {
+                background: #b45309; color: #fff; border: none; border-radius: 8px;
+                padding: 10px 24px; font-size: 13px; font-weight: 600; cursor: pointer;
+                font-family: "Inter", sans-serif; width: 100%;
+            }
+            .btn-template:hover { background: #b45309; }
+
+            /* ── MODAL ── */
+            .modal-overlay {
+                display: none; position: fixed; z-index: 1000;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,.5); backdrop-filter: blur(4px);
+                justify-content: center; align-items: center;
+                padding: 40px;
+            }
+            .modal-overlay.active { display: flex; }
+
+            .modal-window {
+                background: #fff; border-radius: 16px;
+                max-width: 820px; width: 100%; max-height: 90vh;
+                overflow-y: auto; position: relative;
+                box-shadow: 0 20px 60px rgba(0,0,0,.15);
+                animation: modalIn 0.2s ease-out;
+            }
+            @keyframes modalIn {
+                from { opacity: 0; transform: scale(0.95) translateY(10px); }
+                to { opacity: 1; transform: scale(1) translateY(0); }
+            }
+
+            .modal-close {
+                position: absolute; top: 16px; right: 16px; z-index: 10;
+                width: 36px; height: 36px; border-radius: 50%;
+                border: none; background: #f1f5f9; cursor: pointer;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 18px; color: #666; transition: all 0.15s;
+            }
+            .modal-close:hover { background: #e2e8f0; color: #111; }
+
+            .modal-header {
+                display: flex; justify-content: space-between; align-items: center;
+                padding: 24px 32px 0;
+            }
+            .modal-header h2 { font-size: 20px; font-weight: 700; color: #0f172a; }
+            .modal-use-btn {
+                background: #b45309; color: #fff; border: none; border-radius: 8px;
+                padding: 10px 28px; font-size: 14px; font-weight: 600; cursor: pointer;
+                font-family: "Inter", sans-serif;
+            }
+            .modal-use-btn:hover { background: #b45309; }
+
+            .modal-preview {
+                padding: 20px 32px 32px;
+            }
+
+            /* ── Full-Size Document Preview ── */
+            .doc-preview {
+                border: 1px solid #e5e7eb; border-radius: 12px;
+                padding: 36px 40px; background: #fff;
+                font-family: "Inter", sans-serif;
+            }
+
+            .doc-header {
+                display: flex; justify-content: space-between; align-items: flex-start;
+                margin-bottom: 32px; padding-bottom: 20px;
+                border-bottom: 2px solid #f1f5f9;
+            }
+            .doc-brand {
+                display: flex; align-items: center; gap: 12px;
+            }
+            .doc-brand-icon {
+                width: 44px; height: 44px; border-radius: 10px;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 18px; font-weight: 800; color: #fff;
+            }
+            .doc-brand-text .doc-company-name {
+                font-size: 18px; font-weight: 800; margin-bottom: 2px;
+            }
+            .doc-brand-text .doc-company-detail {
+                font-size: 11px; color: #888; line-height: 1.4;
+            }
+            .doc-title-section { text-align: right; }
+            .doc-title {
+                font-size: 22px; font-weight: 800; letter-spacing: 0.08em;
+            }
+            .doc-number {
+                font-size: 12px; color: #888; margin-top: 4px;
+            }
+            .doc-meta {
+                display: flex; gap: 32px; margin-bottom: 28px;
+            }
+            .doc-meta-col { font-size: 12px; line-height: 1.6; }
+            .doc-meta-col strong { font-weight: 600; color: #333; display: block; margin-bottom: 2px; }
+            .doc-meta-col span { color: #666; }
+
+            .doc-bill-section {
+                margin-bottom: 28px;
+            }
+            .doc-bill-label {
+                font-size: 11px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: 0.06em; color: #999; margin-bottom: 4px;
+            }
+            .doc-bill-name {
+                font-size: 15px; font-weight: 600; margin-bottom: 2px;
+            }
+            .doc-bill-detail {
+                font-size: 12px; color: #666; line-height: 1.5;
+            }
+
+            .doc-table {
+                width: 100%; border-collapse: collapse; margin-bottom: 24px;
+            }
+            .doc-table th {
+                font-size: 11px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: 0.05em; color: #999;
+                padding: 8px 10px; text-align: left;
+                border-bottom: 2px solid #f1f5f9;
+            }
+            .doc-table th:last-child,
+            .doc-table td:last-child { text-align: right; }
+            .doc-table td {
+                font-size: 13px; padding: 10px; border-bottom: 1px solid #f1f5f9;
+                color: #333;
+            }
+            .doc-table td:last-child { font-weight: 600; }
+
+            .doc-totals {
+                margin-left: auto; width: 280px;
+            }
+            .doc-total-row {
+                display: flex; justify-content: space-between; padding: 6px 0;
+                font-size: 13px; color: #555;
+            }
+            .doc-total-row.doc-grand-total {
+                border-top: 2px solid #e5e7eb; margin-top: 4px;
+                padding-top: 10px; font-size: 16px; font-weight: 800; color: #0f172a;
+            }
+
+            .doc-bank-details {
+                margin-top: 16px; padding: 12px; background: #f8fafc; border-radius: 6px;
+                font-size: 12px; line-height: 1.6;
+            }
+            .doc-bank-label {
+                font-size: 11px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: 0.5px; color: #64748b; margin-bottom: 6px;
+            }
+            .doc-bank-item {
+                display: flex; justify-content: space-between;
+            }
+            .doc-bank-item span:first-child { color: #64748b; }
+            .doc-bank-item span:last-child { font-weight: 600; color: #0f172a; }
+
+            .doc-notes {
+                margin-top: 16px; padding: 12px; background: #fffbeb; border-radius: 6px;
+                border-left: 3px solid #f59e0b; font-size: 12px;
+            }
+            .doc-notes-label {
+                font-size: 11px; font-weight: 700; text-transform: uppercase;
+                letter-spacing: 0.5px; color: #d97706;
+            }
+            .doc-notes p { margin: 4px 0 0; color: #92400e; line-height: 1.5; }
+
+            /* Document theme variants */
+            .d-modern .doc-brand-icon { background: #0d2141; }
+            .d-modern .doc-title { color: #0d2141; }
+
+            .d-classic .doc-brand-icon { background: #166534; }
+            .d-classic .doc-title { color: #166534; }
+            .d-classic .doc-preview { border-color: #cbd5e1; }
+            .d-classic .doc-header { border-bottom-color: #166534; }
+
+            .d-minimal .doc-brand-icon { background: #475569; border-radius: 50%; }
+            .d-minimal .doc-title { color: #475569; font-weight: 500; }
+            .d-minimal .doc-header { border-bottom: 1px solid #e2e8f0; }
+            .d-minimal .doc-table th { color: #94a3b8; }
+
+            .d-professional .doc-brand-icon { background: #0f766e; }
+            .d-professional .doc-title { color: #14b8a6; }
+            .d-professional .doc-preview { border-color: #0f172a; background: #fcfdff; }
+            .d-professional .doc-header { border-bottom-color: #0f172a; }
+
+            .d-creative .doc-brand-icon { background: #7c3aed; }
+            .d-creative .doc-title { color: #7c3aed; }
+            .d-creative .doc-preview { border-top: 3px solid #7c3aed; }
+            .d-creative .doc-header { border-bottom-color: #7c3aed; }
+            .d-creative .doc-table th { color: #7c3aed; }
+
+            .d-bold .doc-brand-icon { background: #dc2626; }
+            .d-bold .doc-title { color: #fff; }
+            .d-bold .doc-preview { background: #0f172a; border-color: #0f172a; }
+            .d-bold .doc-header { border-bottom-color: rgba(255,255,255,.1); }
+            .d-bold .doc-company-name { color: #fff; }
+            .d-bold .doc-company-detail { color: rgba(255,255,255,.5); }
+            .d-bold .doc-title { color: rgba(255,255,255,.5); }
+            .d-bold .doc-number { color: rgba(255,255,255,.35); }
+            .d-bold .doc-meta-col strong { color: rgba(255,255,255,.7); }
+            .d-bold .doc-meta-col span { color: rgba(255,255,255,.5); }
+            .d-bold .doc-bill-label { color: rgba(255,255,255,.35); }
+            .d-bold .doc-bill-name { color: #fff; }
+            .d-bold .doc-bill-detail { color: rgba(255,255,255,.6); }
+            .d-bold .doc-table th { color: rgba(255,255,255,.4); border-bottom-color: rgba(255,255,255,.1); }
+            .d-bold .doc-table td { color: rgba(255,255,255,.7); border-bottom-color: rgba(255,255,255,.06); }
+            .d-bold .doc-total-row { color: rgba(255,255,255,.6); }
+            .d-bold .doc-grand-total { border-top-color: rgba(255,255,255,.15); color: #f87171; }
+
+            /* Receipt document theme variants */
+            .d-receipt-standard .doc-brand-icon { background: #2563eb; }
+            .d-receipt-standard .doc-title { color: #2563eb; }
+
+            .d-receipt-simple .doc-brand-icon { background: #059669; border-radius: 50%; }
+            .d-receipt-simple .doc-title { color: #059669; font-weight: 500; }
+            .d-receipt-simple .doc-header { border-bottom: 1px solid #d1fae5; }
+            .d-receipt-simple .doc-table th { color: #6ee7b7; }
+
+            .d-receipt-detailed .doc-brand-icon { background: #e11d48; }
+            .d-receipt-detailed .doc-title { color: #e11d48; }
+            .d-receipt-detailed .doc-preview { border-top: 3px solid #e11d48; }
+            .d-receipt-detailed .doc-header { border-bottom-color: #e11d48; }
+            .d-receipt-detailed .doc-table th { color: #e11d48; }
+
+            .cta-wrap {
+                padding: 80px 48px; text-align: center; max-width: 800px; margin: 0 auto;
+            }
+            .cta-wrap h2 { font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
+            .cta-wrap p { font-size: 15px; color: #666; margin-bottom: 32px; }
+            .btn-hero {
+                background: #b45309; color: #fff; border: none; border-radius: 8px;
+                padding: 14px 32px; font-size: 15px; font-weight: 700; cursor: pointer;
+            }
+            .btn-hero:hover { background: #b45309; }
+
+            footer {
+                background: #f9fafb; border-top: 1px solid #e5e7eb;
+                padding: 24px 48px; text-align: center;
+            }
+            footer p { font-size: 13px; color: #888; }
+
+            @media (max-width: 1024px) {
+                .templates-grid { grid-template-columns: repeat(2, 1fr); }
+            }
+            @media (max-width: 900px) {
+                nav { padding: 0 20px; }
+                .hamburger{display:block}
+                .nav-actions{margin-left:auto}
+                #mobileNav{display:flex;flex-direction:column;position:fixed;top:64px;left:0;width:100%;background:#fff;border-bottom:1px solid #eee;padding:16px 24px;gap:4px;transform:translateY(-120%);opacity:0;transition:transform .3s ease,opacity .3s ease;pointer-events:none;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+                #mobileNav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+                #mobileNav li{width:100%}
+                #mobileNav a{display:block;padding:10px 0;font-size:15px;font-weight:500;color:#333;text-decoration:none;border-bottom:1px solid #f5f5f5}
+                #mobileNav a.active{color:#b45309;font-weight:700}
+                .nav-actions .btn-login{font-size:13px}
+                .nav-actions .btn-primary{padding:8px 14px;font-size:13px}
+                .hero { padding: 48px 20px 32px; }
+                .hero h1 { font-size: 32px; }
+                .templates-wrap { padding: 40px 20px; }
+                .cta-wrap { padding: 48px 20px; }
+                .modal-overlay { padding: 20px; }
+                .modal-header { padding: 20px 20px 0; flex-direction: column; gap: 12px; align-items: flex-start; }
+                .modal-preview { padding: 16px 20px 20px; }
+                .doc-preview { padding: 20px; }
+                .doc-header { flex-direction: column; gap: 12px; }
+                .doc-title-section { text-align: left; }
+                .doc-meta { flex-direction: column; gap: 12px; }
+            }
+            @media (max-width: 640px) {
+                .templates-grid { grid-template-columns: 1fr; }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a class="logo" href="index.html">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 2L4 11h7l-2 7 9-10h-7l2-8z" fill="#fff" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="brand">BizVaza</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="mobileNav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="templates.html" class="active">Templates</a></li>
+                <li><a href="pricing.php">Pricing</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.php" style="text-decoration:none"><button class="btn-login">Login</button></a>
+                <a href="register.php" style="text-decoration:none"><button class="btn-primary">Get Started</button></a>
+            </div>
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Choose Your Style
+            </div>
+            <h1>Invoice &amp; Receipt <span>Templates</span></h1>
+            <p class="hero-desc">
+                Pick from our collection of professionally designed templates. Each one is optimised for Nigerian businesses — ready to use in seconds.
+            </p>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('invoice')">Invoice Templates</button>
+                <button class="tab-btn" onclick="switchTab('receipt')">Receipt Templates</button>
+            </div>
+        </section>
+
+        <section class="templates-wrap">
+            <div class="templates-inner">
+                <div class="tab-content active" id="tab-invoice">
+                    <div class="templates-grid" id="invoice-grid"></div>
+                </div>
+                <div class="tab-content" id="tab-receipt">
+                    <div class="templates-grid" id="receipt-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-wrap">
+            <h2>Ready to create your first invoice?</h2>
+            <p>Join 1,000+ Nigerian businesses already using BizVaza. Free forever for basic use.</p>
+            <a href="register.php" style="text-decoration:none"><button class="btn-hero">Get Started Free — No Card Needed</button></a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 BizVaza. Built for Nigerian businesses. All rights reserved. &middot; <a href="admin/login.php" style="color:#94a3b8;text-decoration:none">Admin</a></p>
+        </footer>
+
+        <!-- MODAL -->
+        <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+            <div class="modal-window" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="modal-header">
+                    <h2 id="modal-title"></h2>
+                    <button class="modal-use-btn" id="modal-use-btn" onclick="window.location.href='login.php'">Use This Template</button>
+                </div>
+                <div class="modal-preview" id="modal-preview"></div>
+            </div>
+        </div>
+
+        <script>
+            var templates = [
+                {
+                    id: 'modern', name: 'Modern', type: 'invoice',
+                    theme: 't-modern', docTheme: 'd-modern',
+                    badge: ['Popular', 'Free'],
+                    company: { name: 'TechVentures NG', addr: '15 Awolowo Road, Ikoyi, Lagos', phone: '+234 812 345 6789', email: 'hello@techventures.ng', bank_name: 'First Bank of Nigeria', account_name: 'TechVentures NG Ltd', account_number: '2023456789' },
+                    client: { name: 'Chioma Okafor', addr: 'Lekki Phase 1, Lagos', phone: '+234 803 456 7890', email: 'chioma.okafor@gmail.com' },
+                    number: 'INV-2026-042', issueDate: 'June 15, 2026', dueDate: 'June 29, 2026',
+                    items: [
+                        { desc: 'Website Development', qty: 1, price: 350000 },
+                        { desc: 'Domain Registration (2 yrs)', qty: 2, price: 25000 },
+                        { desc: 'Hosting Setup & Configuration', qty: 1, price: 60000 }
+                    ],
+                    subtotal: 435000, total: 435000,
+                    notes: 'Payment is due within 14 days. Thank you for your business.'
+                },
+                {
+                    id: 'classic', name: 'Classic', type: 'invoice',
+                    theme: 't-classic', docTheme: 'd-classic',
+                    badge: ['Free'],
+                    company: { name: 'Adebayo Consulting', addr: '7 Marina Street, Lagos Island', phone: '+234 809 876 5432', email: 'info@adebayoconsult.com', bank_name: 'Access Bank PLC', account_name: 'Adebayo Consulting Ltd', account_number: '0789654321' },
+                    client: { name: 'Lagos Business School', addr: 'Km 8, Lekki-Epe Expressway', phone: '+234 802 111 2222', email: 'accounts@lbs.edu.ng' },
+                    number: 'INV-2026-107', issueDate: 'June 14, 2026', dueDate: 'July 14, 2026',
+                    items: [
+                        { desc: 'Strategy Consulting (40hrs)', qty: 40, price: 12500 },
+                        { desc: 'Market Research Report', qty: 1, price: 250000 },
+                        { desc: 'Executive Presentation', qty: 1, price: 100000 }
+                    ],
+                    subtotal: 850000, total: 850000,
+                    notes: 'Please make payment to the account details provided above.'
+                },
+                {
+                    id: 'minimal', name: 'Minimal', type: 'invoice',
+                    theme: 't-minimal', docTheme: 'd-minimal',
+                    badge: ['New', 'Free'],
+                    company: { name: 'Sol Studio', addr: '24B Adeola Odeku, Victoria Island', phone: '+234 813 555 6677', email: 'hello@solstudio.ng', bank_name: 'GTBank PLC', account_name: 'Sol Studio Nigeria', account_number: '0123456789' },
+                    client: { name: 'Olamide Adewale', addr: 'Ikeja, Lagos', phone: '+234 806 333 4444', email: 'olamide.a@gmail.com' },
+                    number: 'INV-2026-089', issueDate: 'June 12, 2026', dueDate: 'June 26, 2026',
+                    items: [
+                        { desc: 'Brand Identity Design', qty: 1, price: 200000 },
+                        { desc: 'Logo Design (3 concepts)', qty: 1, price: 80000 }
+                    ],
+                    subtotal: 280000, total: 280000,
+                    notes: 'Thank you for your patronage!'
+                },
+                {
+                    id: 'professional', name: 'Professional', type: 'invoice',
+                    theme: 't-professional', docTheme: 'd-professional',
+                    badge: ['Popular', 'Free'],
+                    company: { name: 'Gravitas Ltd', addr: 'Plot 1732, Cadastral Zone, Abuja', phone: '+234 805 777 8888', email: 'info@gravitasltd.com', bank_name: 'Zenith Bank PLC', account_name: 'Gravitas Ltd', account_number: '1012345678' },
+                    client: { name: 'Zenith Bank PLC', addr: 'Plot 84, Ajose Adeogun, Abuja', phone: '+234 700 000 1234', email: 'procurement@zenithbank.com' },
+                    number: 'INV-2026-223', issueDate: 'June 10, 2026', dueDate: 'July 10, 2026',
+                    items: [
+                        { desc: 'IT Infrastructure Setup', qty: 1, price: 1200000 },
+                        { desc: 'Network Configuration', qty: 1, price: 450000 },
+                        { desc: 'Annual Maintenance Contract', qty: 1, price: 300000 }
+                    ],
+                    subtotal: 1950000, total: 1950000,
+                    notes: 'Payment terms: 30 days. Please quote invoice number on all payments.'
+                },
+                {
+                    id: 'creative', name: 'Creative', type: 'invoice',
+                    theme: 't-creative', docTheme: 'd-creative',
+                    badge: ['New', 'Free'],
+                    company: { name: 'Pixel & Co.', addr: '12B Raymond Njoku, Ikoyi, Lagos', phone: '+234 816 222 3344', email: 'design@pixelandco.ng', bank_name: 'First Bank of Nigeria', account_name: 'Pixel & Co. Designs', account_number: '2029988776' },
+                    client: { name: 'Ifeanyi Eze', addr: 'Enugu, Nigeria', phone: '+234 808 999 0000', email: 'ifeanyi.eze@gmail.com' },
+                    number: 'INV-2026-156', issueDate: 'June 8, 2026', dueDate: 'June 22, 2026',
+                    items: [
+                        { desc: 'UI/UX Design (Mobile App)', qty: 1, price: 180000 },
+                        { desc: 'Interactive Prototype', qty: 1, price: 60000 },
+                        { desc: 'User Testing Session', qty: 1, price: 40000 }
+                    ],
+                    subtotal: 280000, total: 280000,
+                    notes: 'Thank you for choosing Pixel & Co. We look forward to working with you again.'
+                },
+                {
+                    id: 'bold', name: 'Bold', type: 'invoice',
+                    theme: 't-bold', docTheme: 'd-bold',
+                    badge: ['Popular'],
+                    company: { name: 'NOVA Energy', addr: '23A Bishop Aboyade Cole, Victoria Island', phone: '+234 802 444 5566', email: 'hello@novaenergy.ng', bank_name: 'UBA PLC', account_name: 'NOVA Energy Solutions', account_number: '1022334455' },
+                    client: { name: 'Eko Electric', addr: 'Marina, Lagos Island', phone: '+234 800 111 2222', email: 'suppliers@ekoelectric.gov.ng' },
+                    number: 'INV-2026-311', issueDate: 'June 5, 2026', dueDate: 'July 5, 2026',
+                    items: [
+                        { desc: 'Solar Panel Installation (10kW)', qty: 1, price: 2500000 },
+                        { desc: 'Lithium Battery System', qty: 2, price: 400000 },
+                        { desc: 'Electrical Wiring & Setup', qty: 1, price: 350000 }
+                    ],
+                    subtotal: 3650000, total: 3650000,
+                    notes: 'For inquiries regarding this invoice, please contact finance@novaenergy.ng.'
+                },
+                {
+                    id: 'receipt-standard', name: 'Standard Receipt', type: 'receipt',
+                    theme: 't-receipt-standard', docTheme: 'd-receipt-standard',
+                    badge: ['Popular', 'Free'],
+                    company: { name: 'TechVentures NG', addr: '15 Awolowo Road, Ikoyi, Lagos', phone: '+234 812 345 6789', email: 'hello@techventures.ng', bank_name: 'First Bank of Nigeria', account_name: 'TechVentures NG Ltd', account_number: '2023456789' },
+                    client: { name: 'Chioma Okafor', addr: 'Lekki Phase 1, Lagos' },
+                    number: 'RCT-2026-042', issueDate: 'June 15, 2026',
+                    items: [
+                        { desc: 'Payment for Invoice INV-2026-042', qty: 1, price: 435000 }
+                    ],
+                    subtotal: 435000, total: 435000,
+                    notes: 'Payment received. Thank you for your patronage.'
+                },
+                {
+                    id: 'receipt-simple', name: 'Simple Receipt', type: 'receipt',
+                    theme: 't-receipt-simple', docTheme: 'd-receipt-simple',
+                    badge: ['Free'],
+                    company: { name: 'Sol Studio', addr: '24B Adeola Odeku, Victoria Island, Lagos', phone: '+234 813 555 6677', email: 'hello@solstudio.ng', bank_name: 'GTBank PLC', account_name: 'Sol Studio Nigeria', account_number: '0123456789' },
+                    client: { name: 'Olamide Adewale', addr: 'Ikeja, Lagos' },
+                    number: 'RCT-2026-089', issueDate: 'June 12, 2026',
+                    items: [
+                        { desc: 'Payment for Invoice INV-2026-089', qty: 1, price: 280000 }
+                    ],
+                    subtotal: 280000, total: 280000,
+                    notes: 'Payment received in full. Thank you.'
+                },
+                {
+                    id: 'receipt-detailed', name: 'Detailed Receipt', type: 'receipt',
+                    theme: 't-receipt-detailed', docTheme: 'd-receipt-detailed',
+                    badge: ['New', 'Free'],
+                    company: { name: 'Gravitas Ltd', addr: 'Plot 1732, Cadastral Zone, Abuja', phone: '+234 805 777 8888', email: 'info@gravitasltd.com', bank_name: 'UBA PLC', account_name: 'Gravitas Ltd', account_number: '1022334400' },
+                    client: { name: 'Zenith Bank PLC', addr: 'Plot 84, Ajose Adeogun, Abuja' },
+                    number: 'RCT-2026-223', issueDate: 'June 12, 2026',
+                    items: [
+                        { desc: 'IT Infrastructure Setup', qty: 1, price: 1200000 },
+                        { desc: 'Network Configuration', qty: 1, price: 450000 },
+                        { desc: 'Annual Maintenance Contract', qty: 1, price: 300000 }
+                    ],
+                    subtotal: 1950000, total: 1950000,
+                    notes: 'This serves as an official receipt for the payment received.'
+                }
+            ];
+
+            function fmt(n) {
+                return '₦' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+
+            function renderCard(t) {
+                var itemsHtml = '';
+                for (var i = 0; i < Math.min(t.items.length, 3); i++) {
+                    itemsHtml += '<div class="mp-item"><span class="mi-desc">' + t.items[i].desc + '</span><span class="mi-amount">' + fmt(t.items[i].price) + '</span></div>';
+                }
+                var tagsHtml = '';
+                for (var j = 0; j < t.badge.length; j++) {
+                    var cls = 'tag-';
+                    if (t.badge[j] === 'Popular') cls += 'popular';
+                    else if (t.badge[j] === 'New') cls += 'new';
+                    else cls += 'free';
+                    tagsHtml += '<span class="tag ' + cls + '">' + t.badge[j] + '</span>';
+                }
+                var label = t.type === 'receipt' ? 'RECEIPT' : 'INVOICE';
+
+                return '<div class="template-card ' + t.theme + '" onclick="openModal(\'' + t.id + '\')">' +
+                    '<div class="mock-preview">' +
+                        '<div class="mp-header">' +
+                            '<div class="mp-logo">' + t.company.name.charAt(0) + '</div>' +
+                            '<div class="mp-label">' + label + '</div>' +
+                        '</div>' +
+                        '<div class="mp-company">' + t.company.name + '</div>' +
+                        '<div class="mp-number">' + t.number + '</div>' +
+                        '<div class="mp-client-label">' + (t.type === 'receipt' ? 'Received From' : 'Bill To') + '</div>' +
+                        '<div class="mp-client">' + t.client.name + '</div>' +
+                        '<div class="mp-items">' + itemsHtml + '</div>' +
+                        '<div class="mp-divider"></div>' +
+                        '<div class="mp-total-row">' +
+                            '<span class="mtr-label">Total</span>' +
+                            '<span class="mtr-amount">' + fmt(t.total) + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="card-body">' +
+                        '<h3>' + t.name + '</h3>' +
+                        '<p>' + (t.type === 'invoice' ? 'Professional invoice template with a ' : 'Clean receipt template with a ') + 'clean, polished design.</p>' +
+                        '<div class="card-tags">' + tagsHtml + '</div>' +
+                        '<button class="btn-template" onclick="event.stopPropagation();window.location.href=\'login.php\'">Use Template</button>' +
+                    '</div>' +
+                '</div>';
+            }
+
+            function renderDoc(t) {
+                var label = t.type === 'receipt' ? 'RECEIPT' : 'INVOICE';
+                var itemsHtml = '';
+                for (var i = 0; i < t.items.length; i++) {
+                    itemsHtml += '<tr><td>' + (i + 1) + '</td><td>' + t.items[i].desc + '</td><td>' + t.items[i].qty + '</td><td>' + fmt(t.items[i].price) + '</td><td>' + fmt(t.items[i].qty * t.items[i].price) + '</td></tr>';
+                }
+
+                var metaHtml = '';
+                if (t.type === 'invoice') {
+                    metaHtml =
+                        '<div class="doc-meta">' +
+                            '<div class="doc-meta-col"><strong>Issue Date</strong><span>' + t.issueDate + '</span></div>' +
+                            '<div class="doc-meta-col"><strong>Due Date</strong><span>' + t.dueDate + '</span></div>' +
+                            '<div class="doc-meta-col"><strong>Invoice No.</strong><span>' + t.number + '</span></div>' +
+                        '</div>';
+                } else {
+                    metaHtml =
+                        '<div class="doc-meta">' +
+                            '<div class="doc-meta-col"><strong>Date</strong><span>' + t.issueDate + '</span></div>' +
+                            '<div class="doc-meta-col"><strong>Receipt No.</strong><span>' + t.number + '</span></div>' +
+                            '<div class="doc-meta-col"><strong>Status</strong><span style="color:#059669;font-weight:600">Paid</span></div>' +
+                        '</div>';
+                }
+
+                var clientAddr = t.client.addr || '';
+                var clientPhone = t.client.phone || '';
+                var clientEmail = t.client.email || '';
+
+                var bankHtml = '';
+                if (t.type === 'invoice' && t.company.bank_name) {
+                    bankHtml =
+                        '<div class="doc-bank-details">' +
+                            '<div class="doc-bank-label">Account Details</div>' +
+                            '<div class="doc-bank-item"><span>Bank</span><span>' + t.company.bank_name + '</span></div>' +
+                            '<div class="doc-bank-item"><span>Account Name</span><span>' + t.company.account_name + '</span></div>' +
+                            '<div class="doc-bank-item"><span>Account Number</span><span>' + t.company.account_number + '</span></div>' +
+                        '</div>';
+                }
+
+                var notesHtml = '';
+                if (t.notes) {
+                    notesHtml = '<div class="doc-notes"><span class="doc-notes-label">Notes</span><p>' + t.notes + '</p></div>';
+                }
+
+                return '<div class="doc-preview">' +
+                    '<div class="doc-header">' +
+                        '<div class="doc-brand">' +
+                            '<div class="doc-brand-icon">' + t.company.name.charAt(0) + '</div>' +
+                            '<div class="doc-brand-text">' +
+                                '<div class="doc-company-name">' + t.company.name.toUpperCase() + '</div>' +
+                                '<div class="doc-company-detail">' + t.company.addr + '<br>' + t.company.phone + '<br>' + t.company.email + '</div>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="doc-title-section">' +
+                            '<div class="doc-title">' + label + '</div>' +
+                            '<div class="doc-number">' + t.number + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    metaHtml +
+                    '<div class="doc-bill-section">' +
+                        '<div class="doc-bill-label">' + (t.type === 'invoice' ? 'Bill To' : 'Received From') + '</div>' +
+                        '<div class="doc-bill-name">' + t.client.name + '</div>' +
+                        '<div class="doc-bill-detail">' + (clientAddr ? clientAddr + '<br>' : '') + (clientPhone ? clientPhone + '<br>' : '') + (clientEmail || '') + '</div>' +
+                    '</div>' +
+                    '<table class="doc-table">' +
+                        '<thead><tr><th>#</th><th>Item / Description</th><th>Qty</th><th>Unit Price</th><th>Amount</th></tr></thead>' +
+                        '<tbody>' + itemsHtml + '</tbody>' +
+                    '</table>' +
+                    '<div class="doc-totals">' +
+                        '<div class="doc-total-row"><span>Subtotal</span><span>' + fmt(t.subtotal) + '</span></div>' +
+                        '<div class="doc-total-row doc-grand-total"><span>Total</span><span>' + fmt(t.total) + '</span></div>' +
+                    '</div>' +
+                    bankHtml +
+                    notesHtml +
+                '</div>';
+            }
+
+            function renderAll() {
+                var invHtml = '', rctHtml = '';
+                for (var i = 0; i < templates.length; i++) {
+                    if (templates[i].type === 'invoice') invHtml += renderCard(templates[i]);
+                    else rctHtml += renderCard(templates[i]);
+                }
+                document.getElementById('invoice-grid').innerHTML = invHtml;
+                document.getElementById('receipt-grid').innerHTML = rctHtml;
+            }
+
+            function openModal(id) {
+                var t;
+                for (var i = 0; i < templates.length; i++) {
+                    if (templates[i].id === id) { t = templates[i]; break; }
+                }
+                if (!t) return;
+                document.getElementById('modal-title').textContent = t.name;
+                document.getElementById('modal-preview').innerHTML = '<div class="' + t.docTheme + '">' + renderDoc(t) + '</div>';
+                document.getElementById('modal-overlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal(e) {
+                if (e && e.target !== e.currentTarget) return;
+                document.getElementById('modal-overlay').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function switchTab(tab) {
+                document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+                document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+                var btns = document.querySelectorAll('.tab-btn');
+                for (var i = 0; i < btns.length; i++) {
+                    if (btns[i].getAttribute('onclick').indexOf(tab) !== -1) {
+                        btns[i].classList.add('active');
+                        break;
+                    }
+                }
+                document.getElementById('tab-' + tab).classList.add('active');
+            }
+
+            renderAll();
+        </script>
+<script>function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open')}</script>
+    </body>
+</html>

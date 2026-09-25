@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizVaza — How It Works</title>
+    <meta name="description" content="Learn how BizVaza works: sign up free, build an invoice, send it to your client via WhatsApp, and get paid faster. Four simple steps.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BizVaza">
+    <meta property="og:title" content="BizVaza — How It Works">
+    <meta property="og:description" content="Sign up free, build an invoice, send it via WhatsApp, and get paid faster. Four simple steps.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="BizVaza — How It Works">
+    <meta name="twitter:description" content="Sign up free, build an invoice, send it via WhatsApp, and get paid faster.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M11 2L4 11h7l-2 7 9-10h-7l2-8z' fill='%23b45309'/%3E%3C/svg%3E"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Inter", sans-serif; background: #fff; color: #111; line-height: 1.5; }
+
+        /* NAV */
+        nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 48px; height: 64px; border-bottom: 1px solid #eee;
+            position: sticky; top: 0; background: #fff; z-index: 100;
+        }
+        .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-icon { width: 36px; height: 36px; background: #0d2141; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon svg { width: 20px; height: 20px; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-text .brand { font-size: 15px; font-weight: 800; color: #111; letter-spacing: 0.03em; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #444; font-size: 14px; font-weight: 500; }
+        .nav-links a:hover { color: #111; }
+        .nav-links .active { color: #b45309; font-weight: 600; }
+        .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:4px}
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .btn-login { font-size: 14px; font-weight: 500; color: #111; background: none; border: none; cursor: pointer; }
+        .btn-primary { background: #b45309; color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .btn-primary:hover { background: #b45309; }
+
+        /* HERO */
+        .hero {
+            text-align: center; padding: 80px 48px 64px; max-width: 1200px; margin: 0 auto;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #b45309; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 48px; font-weight: 800; line-height: 1.15; margin-bottom: 20px;
+            color: #0f172a;
+        }
+        .hero h1 span { color: #b45309; }
+        .hero-desc {
+            font-size: 16px; color: #555; margin-bottom: 40px; line-height: 1.7;
+            max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 900px; margin: 0 auto;
+        }
+        .stat-card {
+            background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+            padding: 24px 16px; text-align: center;
+        }
+        .stat-icon { font-size: 28px; margin-bottom: 10px; }
+        .stat-value { font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+        .stat-label { font-size: 12px; color: #666; }
+
+        /* STEPS SECTION */
+        .steps-wrap {
+            background: #f8fafc; padding: 80px 0; border-bottom: 1px solid #f0f0f0;
+        }
+        .steps-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+        .section-eyebrow {
+            color: #0d2141; font-size: 13px; font-weight: 700; text-align: center; margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 36px; font-weight: 800; color: #0f172a; text-align: center; margin-bottom: 8px;
+        }
+        .section-subtitle {
+            font-size: 15px; color: #666; text-align: center; margin-bottom: 56px;
+        }
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .step-card {
+            background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+            padding: 28px 20px; text-align: center;
+        }
+        .step-num-wrap {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px; font-size: 22px;
+        }
+        .sn-blue { background: #e5f1ff; }
+        .sn-amber { background: #fff7ed; }
+        .sn-green { background: #d1fae5; }
+        .sn-purple { background: #ede9fe; }
+        .step-card h3 { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 8px; }
+        .step-card p { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 14px; }
+        .step-features { list-style: none; text-align: left; }
+        .step-features li {
+            font-size: 12px; color: #444; padding: 3px 0 3px 20px; line-height: 1.5; position: relative;
+        }
+        .step-features li::before {
+            content: ""; position: absolute; left: 0; top: 5px; width: 12px; height: 12px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b45309' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center/contain;
+        }
+
+        /* JOURNEY OVERVIEW */
+        .journey-wrap { padding: 60px 48px; max-width: 1200px; margin: 0 auto; }
+        .journey-wrap h2 { font-size: 24px; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 40px; }
+        .journey-bar {
+            display: flex; align-items: center; justify-content: center; gap: 0;
+            max-width: 800px; margin: 0 auto;
+        }
+        .j-step {
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            flex: 1; position: relative;
+        }
+        .j-dot {
+            width: 44px; height: 44px; border-radius: 50%; background: #fff7ed;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; border: 2px solid #b45309; z-index: 1;
+        }
+        .j-step.active .j-dot { background: #b45309; }
+        .j-label { font-size: 12px; color: #444; font-weight: 500; text-align: center; max-width: 100px; }
+        .j-step.active .j-label { color: #b45309; font-weight: 700; }
+        .j-line {
+            flex: 1; height: 2px; background: #e5e7eb; margin: 0 -1px;
+        }
+        .j-step.active ~ .j-step .j-line { background: #e5e7eb; }
+
+        /* FAQ */
+        .faq-wrap {
+            background: #f8fafc; padding: 80px 48px; border-top: 1px solid #f0f0f0;
+        }
+        .faq-inner { max-width: 800px; margin: 0 auto; }
+        .faq-wrap .section-title { margin-bottom: 48px; }
+        .faq-item {
+            background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+            padding: 20px 24px; margin-bottom: 14px;
+        }
+        .faq-q {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 15px; font-weight: 600; color: #111; cursor: pointer;
+        }
+        .faq-q span { color: #b45309; font-size: 20px; font-weight: 700; transition: transform .2s ease; }
+        .faq-item.open .faq-q span { transform: rotate(45deg); }
+        .faq-a {
+            max-height: 0; overflow: hidden; margin-top: 0; padding: 0;
+            font-size: 13px; color: #666; line-height: 1.6;
+            border-top: 1px solid transparent;
+            transition: max-height .25s ease, margin-top .25s ease, padding-top .25s ease, border-color .25s ease;
+        }
+        .faq-item.open .faq-a {
+            max-height: 400px; margin-top: 12px; padding-top: 12px;
+            border-top-color: #f0f0f0;
+        }
+
+        /* CTA */
+        .cta-wrap {
+            padding: 80px 48px; text-align: center; max-width: 800px; margin: 0 auto;
+        }
+        .cta-wrap h2 { font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
+        .cta-wrap p { font-size: 15px; color: #666; margin-bottom: 32px; }
+        .btn-hero {
+            background: #b45309; color: #fff; border: none; border-radius: 8px;
+            padding: 14px 32px; font-size: 15px; font-weight: 700; cursor: pointer;
+        }
+        .btn-hero:hover { background: #b45309; }
+
+        /* FOOTER */
+        footer {
+            background: #f9fafb; border-top: 1px solid #e5e7eb;
+            padding: 24px 48px; text-align: center;
+        }
+        footer p { font-size: 13px; color: #888; }
+
+        @media (max-width: 900px) {
+            nav { padding: 0 20px; }
+            .hamburger{display:block}
+            .nav-actions{margin-left:auto}
+            #mobileNav{display:flex;flex-direction:column;position:fixed;top:64px;left:0;width:100%;background:#fff;border-bottom:1px solid #eee;padding:16px 24px;gap:4px;transform:translateY(-120%);opacity:0;transition:transform .3s ease,opacity .3s ease;pointer-events:none;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+            #mobileNav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+            #mobileNav li{width:100%}
+            #mobileNav a{display:block;padding:10px 0;font-size:15px;font-weight:500;color:#333;text-decoration:none;border-bottom:1px solid #f5f5f5}
+            #mobileNav a.active{color:#b45309;font-weight:700}
+            .nav-actions .btn-login{font-size:13px}
+            .nav-actions .btn-primary{padding:8px 14px;font-size:13px}
+            .hero { padding: 48px 20px 40px; }
+            .hero h1 { font-size: 32px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-inner { padding: 0 20px; }
+            .journey-wrap { padding: 40px 20px; }
+            .journey-bar { flex-wrap: wrap; gap: 12px; }
+            .j-line { display: none; }
+            .faq-wrap { padding: 48px 20px; }
+            .cta-wrap { padding: 48px 20px; }
+        }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+            <a class="logo" href="index.html">
+        <div class="logo-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 2L4 11h7l-2 7 9-10h-7l2-8z" fill="#fff" />
+            </svg>
+        </div>
+        <div class="logo-text">
+            <span class="brand">BizVaza</span>
+        </div>
+    </a>
+
+    <ul class="nav-links" id="mobileNav">
+                <li><a href="index.html">Home</a></li>
+        <li><a href="templates.html">Templates</a></li>
+        <li><a href="pricing.php">Pricing</a></li>
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="login.php" style="text-decoration:none"><button class="btn-login">Login</button></a>
+        <a href="register.php" style="text-decoration:none"><button class="btn-primary">Get Started</button></a>
+    </div>
+    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg> Simple. Fast. Effective.
+    </div>
+    <h1>From Signup to <span>Getting Paid</span><br>in Four Steps</h1>
+    <p class="hero-desc">No complicated setup. No learning curve. Just create an account and start invoicing with BizVaza in minutes.</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="stat-value">&lt; 60s</div>
+            <div class="stat-label">To create an invoice</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="stat-value">4.9<svg width="16" height="16" viewBox="0 0 24 24" fill="#b45309" stroke="currentColor" stroke-width="2" stroke-linejoin="round" style="vertical-align:-2px;margin-left:3px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="stat-label">Average user rating</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div class="stat-value">3×</div>
+            <div class="stat-label">Faster payment collection</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></div>
+            <div class="stat-value">1,000+</div>
+            <div class="stat-label">Businesses using BizVaza</div>
+        </div>
+    </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps-wrap">
+    <div class="steps-inner">
+        <div class="section-eyebrow">How It Works</div>
+        <div class="section-title">Four Simple Steps</div>
+        <div class="section-subtitle">From creating your account to getting paid — we've made it effortless.</div>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num-wrap sn-purple"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <h3>Create Your Account</h3>
+                <p>Sign up for free in under 60 seconds. No credit card needed.</p>
+                <ul class="step-features">
+                    <li>Free forever plan available</li>
+                    <li>Business profile setup</li>
+                    <li>Custom branding options</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num-wrap sn-blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+                <h3>Build Your Invoice</h3>
+                <p>Add client details, line items, and prices. BizVaza auto-calculates totals.</p>
+                <ul class="step-features">
+                    <li>Auto-calculate totals &amp; VAT</li>
+                    <li>Add line items with ease</li>
+                    <li>Beautiful PDF templates</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num-wrap sn-green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+                <h3>Send to Your Client</h3>
+                <p>Share via WhatsApp, email, or a shareable link. Works on any device.</p>
+                <ul class="step-features">
+                    <li>WhatsApp one-tap sharing</li>
+                    <li>Email with PDF attachment</li>
+                    <li>Shareable invoice link</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num-wrap sn-amber"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <h3>Get Paid &amp; Track</h3>
+                <p>Receive payments and track invoice status in real-time from your dashboard.</p>
+                <ul class="step-features">
+                    <li>Real-time payment tracking</li>
+                    <li>Multiple payment methods</li>
+                    <li>Automatic payment reminders</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JOURNEY OVERVIEW -->
+<section class="journey-wrap">
+    <h2>The Full Journey at a Glance</h2>
+    <div class="journey-bar">
+        <div class="j-step active">
+            <div class="j-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="j-label">Create Account</div>
+        </div>
+        <div class="j-line"></div>
+        <div class="j-step">
+            <div class="j-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+            <div class="j-label">Build Invoice</div>
+        </div>
+        <div class="j-line"></div>
+        <div class="j-step">
+            <div class="j-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+            <div class="j-label">Send to Client</div>
+        </div>
+        <div class="j-line"></div>
+        <div class="j-step">
+            <div class="j-dot"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="j-label">Get Paid</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-wrap">
+    <div class="faq-inner">
+        <div class="section-title">Common Questions</div>
+
+        <div class="faq-item">
+            <div class="faq-q">Do I need a credit card to sign up? <span>+</span></div>
+            <div class="faq-a">No. The free plan is free forever — no card required. You only upgrade when you're ready.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">What payment methods can my clients use? <span>+</span></div>
+            <div class="faq-a">Your clients can pay via Paystack, Flutterwave, or direct bank transfer. All major Nigerian banks supported.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Can I customise invoices with my logo? <span>+</span></div>
+            <div class="faq-a">Yes. Upload your logo, set your brand colors, and choose from multiple professional templates.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">How do I send invoices via WhatsApp? <span>+</span></div>
+            <div class="faq-a">After creating an invoice, tap "Send via WhatsApp". It opens a pre-filled message with your invoice link ready to send.</div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-wrap">
+    <h2>Ready to create your first invoice?</h2>
+    <p>Join 1,000+ Nigerian businesses already using BizVaza. Free forever for basic use.</p>
+    <a href="register.php" style="text-decoration:none"><button class="btn-hero">Get Started Free — No Card Needed</button></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 BizVaza. Built for Nigerian businesses. All rights reserved. &middot; <a href="admin/login.php" style="color:#94a3b8;text-decoration:none">Admin</a></p>
+</footer>
+
+<script>/*(function(){function c(e){e.preventDefault()}document.addEventListener('contextmenu',c);function k(e){if(e.key==='F12'||e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J')||e.ctrlKey&&e.key==='U')e.preventDefault()}document.addEventListener('keydown',k)})();*/
+function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open')}
+document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){ q.parentElement.classList.toggle('open'); });
+});
+</script></body>
+</html>
